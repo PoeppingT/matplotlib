@@ -1,3 +1,4 @@
+import math
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -15,7 +16,7 @@ def setup_basic(title = None, xlabel = None, ylabel = None):
         ax.set_ylabel(ylabel)
     return fig, ax
 
-def line_plotter(ax, data1, data2, param_dict):
+def line_plotter(ax, data1, data2, param_dict = {}):
     """
     A helper function to make a graph
 
@@ -43,9 +44,11 @@ def line_plotter(ax, data1, data2, param_dict):
 
 # plt.subplots(number graphs rows, number graphs cols)
 fig, ax = setup_basic(title = 'Simple Plot', xlabel = 'X Label', ylabel = 'Y Label')
-x = np.linspace(0, 2, 100)
-line_plotter(ax, x, x, {'label':'linear'})
-line_plotter(ax, x, x**2, {'label':'quadratic'})
-line_plotter(ax, x, x**3, {'label':'cubic'})
+x = np.linspace(0, 10, 10000)
+# line_plotter(ax, x, x, {'label':'linear'})
+# line_plotter(ax, x, x**2, {'label':'quadratic'})
+# line_plotter(ax, x, x**3, {'label':'cubic'})
+line_plotter(ax, x, np.sin(x), {'label':'sin'})
+line_plotter(ax, x, np.cos(x) + np.sin(x))
 
 ax.legend()
